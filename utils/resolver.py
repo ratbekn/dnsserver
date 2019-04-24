@@ -1,7 +1,9 @@
 import ipaddress
+import logging
 import random
 import socket
 import struct
+import sys
 
 from dns import dns_servers
 from dns.dns_enums import RRType, ResponseType
@@ -9,6 +11,18 @@ from dns.dns_message import Query, Answer
 from .zhuban_exceptions import (
     InvalidAnswer, InvalidServerResponse, ErrorResponse, ServerNotRespond
 )
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s %(name)s - %(levelname)s - %(message)s',  datefmt='%S:%M:%H')
+
+handler = logging.StreamHandler(stream=sys.stderr)
+handler.setLevel(logging.DEBUG)
+handler.setFormatter(formatter)
+
+logger.addHandler(handler)
 
 
 def get_root_servers():
@@ -25,6 +39,9 @@ def find_name_servers(hostname,
     :param timeout: время ожидания ответа от сервера
     :return: список ip адресов name server'ов
     """
+    logger = logging.getLogger(f'{__name__}.{find_name_servers.__name__}')
+
+    logger.debug('--- Finding name servers ---')
 
     server = random.choice(list(get_root_servers()))
     while True:
@@ -35,6 +52,11 @@ def find_name_servers(hostname,
         if answer.header.response_type != ResponseType.NO_ERROR:
             raise ErrorResponse(data=answer)
 
+        logger.debug(f'Got answer: {answer}')
+
+        if any(ans for ans in answer.authorities if ans.type_ == RRType.SOA):
+            break
+
         if answer.header.answer_count:
             break
 
@@ -43,7 +65,10 @@ def find_name_servers(hostname,
                         if ns.type_ == RRType.NS)):
             server = random.choice(answer.authorities).data.name
 
-    return [answer.data.name for answer in answer.answers]
+    logger.debug('=== Finding name servers ===')
+
+    return ([ans for ans in answer.answers if ans.type_ == RRType.NS]
+            + [ans for ans in answer.authorities if ans.type_ == RRType.SOA])
 
 
 def get_primary_name_server(hostname,
@@ -56,6 +81,9 @@ def get_primary_name_server(hostname,
     :param timeout: время ожидания ответа от сервера
     :return: ip адрес primary сервера
     """
+    logger = logging.getLogger(f'{__name__}.{get_primary_name_server.__name__}')
+
+    logger.debug('--- Getting primary name server ---')
 
     try:
         name_servers = find_name_servers(hostname,
@@ -64,15 +92,36 @@ def get_primary_name_server(hostname,
     except ErrorResponse as e:
         raise e
 
+    found_name_servers = '\n'.join([ns.data.name for ns in name_servers if ns.type_ == RRType.NS]
+                                   + [ns.data.name_server for ns in name_servers if ns.type_ == RRType.SOA])
+    logger.debug(f'Finded name servers: {found_name_servers}')
+
     for name_server in name_servers:
-        answer = get_answer(hostname, RRType.SOA,
-                            protocol=protocol,
-                            server=name_server, port=port, timeout=timeout)
+        if name_server.type_ == RRType.SOA:
+            return name_server.data.name_server
+
+    for name_server_rr in name_servers:
+        name_server = (
+            name_server_rr.data.name_server if name_server_rr.type_ == RRType.SOA else name_server_rr.data.name)
+
+        try:
+            answer = get_answer(hostname, RRType.SOA,
+                                protocol=protocol,
+                                server=name_server, port=port, timeout=timeout)
+        except socket.timeout:
+            continue
 
         if answer.header.answer_count:
-            return answer.answers[0].data.name_server
+            for answer in answer.answers:
+                if answer.type_ == RRType.SOA:
+                    logger.debug('=== Getting primary name server ===')
 
-    return None
+                    return answer.data.name_server
+
+    logger.error("Primary name server didn't find")
+    logger.error("Our last hope is Google")
+
+    return '8.8.8.8'
 
 
 def tcp_query(query: bytes, *, server, port, timeout) -> bytes:
@@ -121,17 +170,24 @@ def udp_query(query: bytes, *, server, port, timeout) -> bytes:
     :raise socket.gaierror: ошибки связанные с адресом
     :return: объект bytes содержащий ответ от сервера
     """
+    logger = logging.getLogger(f'{__name__}.{udp_query.__name__}')
+
+    logger.debug('--- Start udp query ---')
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
         s.settimeout(timeout)
+
+        # logger.debug(f'Send query:\n {str(Query.from_bytes(query)).strip()}')
+        logger.debug(f'Send query to server {(server, port)}')
 
         try:
             s.sendto(query, (server, port))
             response = s.recv(1024)
         except socket.timeout:
-            raise
+            raise ServerNotRespond(f'Сервер {server}:{port} не отвечает')
         except socket.gaierror:
             raise
 
+    logger.debug('=== End udp query ===')
     return response
 
 
@@ -231,6 +287,10 @@ def get_answer(hostname, record_type,
 
 
 def resolve(args):
+    logger = logging.getLogger(f'{__name__}.{resolve.__name__}')
+
+    logger.debug('--- Resolving start ---')
+
     if args.inverse:
         return resolve_reverse_lookup(args)
 
@@ -242,19 +302,28 @@ def resolve(args):
     record_type = args.record_type
 
     if server is None:
+        logger.debug('--- Finding primary server ---')
         try:
             server = get_primary_name_server(
                 hostname, protocol=protocol, port=port, timeout=timeout)
         except ErrorResponse as e:
             return e.data
+        except ServerNotRespond as e:
+            raise e
+
+        logger.debug('=== Finding primary server ===')
+        logger.debug(f'Server: {server}')
 
     try:
+        logger.debug('--- Getting answer ---')
         answer = get_answer(hostname, record_type, inverse=False,
                             ipv6=args.ipv6, protocol=protocol, server=server,
                             port=port, timeout=timeout)
     except socket.timeout:
         raise ServerNotRespond(f'Авторитетный для {hostname} сервер {server} не отвечает')
+    logger.debug('=== Getting answer ===')
 
+    logger.debug('=== Resolving end ===')
     return answer
 
 

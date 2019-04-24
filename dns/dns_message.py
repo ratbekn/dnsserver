@@ -616,13 +616,13 @@ class _CNAMEResourceData:
     """
 
     def __init__(self, in_bytes, offset):
-        self.cname = _decode_name(in_bytes, offset).decoded_
+        self.name = _decode_name(in_bytes, offset).decoded_
 
     def __str__(self):  # pragma: no cover
-        return f'Каноническое имя (CNAME): {self.cname}\n'
+        return f'Каноническое имя (CNAME): {self.name}\n'
 
     def to_bytes(self) -> bytes:
-        return _encode_name(self.cname)
+        return _encode_name(self.name)
 
 
 class _ResourceRecord:
