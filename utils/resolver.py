@@ -12,11 +12,10 @@ from .zhuban_exceptions import (
     InvalidAnswer, InvalidServerResponse, ErrorResponse, ServerNotRespond
 )
 
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-formatter = logging.Formatter('%(asctime)s %(name)s - %(levelname)s - %(message)s',  datefmt='%S:%M:%H')
+formatter = logging.Formatter('%(asctime)s %(name)s - %(levelname)s - %(message)s', datefmt='%S:%M:%H')
 
 handler = logging.StreamHandler(stream=sys.stderr)
 handler.setLevel(logging.DEBUG)
@@ -110,6 +109,8 @@ def get_primary_name_server(hostname,
                                 server=name_server, port=port, timeout=timeout)
         except socket.timeout:
             continue
+        except socket.gaierror:
+            continue
 
         if answer.header.answer_count:
             for answer in answer.answers:
@@ -119,7 +120,7 @@ def get_primary_name_server(hostname,
                     return answer.data.name_server
 
     logger.error("Primary name server didn't find")
-    logger.error("Our last hope is Google")
+    logger.error("Our last hope")
 
     return '8.8.8.8'
 
@@ -274,12 +275,16 @@ def get_answer(hostname, record_type,
     # if inverse:
     #     hostname = get_ip_reverse_notation(hostname, ipv6=ipv6)
 
-    response = send_query(hostname=hostname, record_type=record_type,
-                          protocol=protocol, server=server,
-                          port=port, timeout=timeout)
-
     try:
+        response = send_query(hostname=hostname, record_type=record_type,
+                              protocol=protocol, server=server,
+                              port=port, timeout=timeout)
+
         answer = Answer.from_bytes(response)
+    except socket.timeout:
+        raise
+    except socket.gaierror:
+        raise
     except InvalidAnswer as e:
         raise InvalidServerResponse from e
 
@@ -321,6 +326,9 @@ def resolve(args):
                             port=port, timeout=timeout)
     except socket.timeout:
         raise ServerNotRespond(f'Авторитетный для {hostname} сервер {server} не отвечает')
+    except socket.gaierror:
+        logger.exception('')
+
     logger.debug('=== Getting answer ===')
 
     logger.debug('=== Resolving end ===')

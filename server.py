@@ -79,6 +79,8 @@ def main():
             sock.sendto(encoded_answer, address)
         except ServerNotRespond as e:
             logger.exception(e.msg)
+        except ConnectionResetError:
+            pass
 
 
 if __name__ == '__main__':
