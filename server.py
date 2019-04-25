@@ -1,15 +1,19 @@
 import logging
 import sys
+from collections import namedtuple
 from socket import socket, AF_INET, SOCK_DGRAM
 from types import SimpleNamespace
 
 from dns.dns_message import Query, Answer
 from dns.dns_enums import RRType
 from utils import resolver
+from utils.cache import cache
 from utils.zhuban_exceptions import ServerNotRespond
 
 HOST = '127.0.0.1'
 PORT = 53
+
+store = {}
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -22,6 +26,8 @@ handler.setFormatter(formatter)
 
 logger.addHandler(handler)
 
+args_namespace = namedtuple('args_namespace', ['hostname', 'record_type', 'ipv6'])
+
 
 def convert_query(query: Query):
     logger = logging.getLogger(f'{__name__}.{convert_query.__name__}')
@@ -29,32 +35,28 @@ def convert_query(query: Query):
     hostname = query.question.name
     inverse = hostname.endswith('.ip6.arpa') or hostname.endswith('.in-addr.arpa')
     ipv6 = query.question.type_ == RRType.AAAA if not inverse else hostname.endswith('.ip6.arpa')
-    protocol = 'udp'
-    server = None
-    port = 53
-    timeout = 1
     record_type = query.question.type_
 
-    args = SimpleNamespace(
-        inverse=inverse,
-        ipv6=ipv6,
+    args = args_namespace(
         hostname=hostname,
-        protocol=protocol,
-        server=server,
-        port=port,
-        timeout=timeout,
-        record_type=record_type)
+        record_type=record_type,
+        ipv6=ipv6)
 
     logger.debug(f'Converted to args: {args}')
 
     return args
 
 
+@cache
+def cache_resolve(args):
+    return resolver.resolve(args)
+
+
 def process_request(query: Query) -> Answer:
     logger = logging.getLogger(f'{__name__}.{process_request.__name__}')
 
     args = convert_query(query)
-    answer = resolver.resolve(args)
+    answer = cache_resolve(args)
     answer.header.identifier = query.header.identifier
 
     return answer

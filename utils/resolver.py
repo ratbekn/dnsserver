@@ -13,7 +13,7 @@ from .zhuban_exceptions import (
 )
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.WARNING)
 
 formatter = logging.Formatter('%(asctime)s %(name)s - %(levelname)s - %(message)s', datefmt='%S:%M:%H')
 
@@ -296,14 +296,14 @@ def resolve(args):
 
     logger.debug('--- Resolving start ---')
 
-    if args.inverse:
+    if args.hostname.endswith('.ip6.arpa') or args.hostname.endswith('.in-addr.arpa'):
         return resolve_reverse_lookup(args)
 
     hostname = args.hostname
-    protocol = args.protocol
-    server = args.server
-    port = args.port
-    timeout = args.timeout
+    protocol = 'udp'
+    server = None
+    port = 53
+    timeout = 5
     record_type = args.record_type
 
     if server is None:
@@ -337,10 +337,10 @@ def resolve(args):
 
 def resolve_reverse_lookup(args):
     hostname = args.hostname
-    protocol = args.protocol
-    server = args.server
-    port = args.port
-    timeout = args.timeout
+    protocol = 'udp'
+    server = None
+    port = 53
+    timeout = 5
 
     if server is None:
         servers = (dns_servers.revers_lookup_servers_ip6 if args.ipv6
