@@ -2,7 +2,6 @@ import logging
 import sys
 from collections import namedtuple
 from socket import socket, AF_INET, SOCK_DGRAM
-from types import SimpleNamespace
 
 from dns.dns_message import Query, Answer
 from dns.dns_enums import RRType
@@ -56,6 +55,10 @@ def process_request(query: Query) -> Answer:
     logger = logging.getLogger(f'{__name__}.{process_request.__name__}')
 
     args = convert_query(query)
+
+    if args.hostname.endswith('.beeline'):
+        return Answer(query.header, [query.question], [], [], [])
+
     answer = cache_resolve(args)
     answer.header.identifier = query.header.identifier
 
@@ -69,12 +72,12 @@ def main():
     sock.bind((HOST, PORT))
 
     while True:
-        message, address = sock.recvfrom(512)
-        query = Query.from_bytes(message)
-        logger.info(f'Got message from {address}')
-        logger.info(f'domain: {query.question.name}, rr type: {query.question.type_}')
-
         try:
+            message, address = sock.recvfrom(512)
+            query = Query.from_bytes(message)
+            logger.info(f'Got message from {address}')
+            logger.info(f'domain: {query.question.name}, rr type: {query.question.type_}')
+
             answer = process_request(query)
             logger.info(f'Send answer to {address}')
             encoded_answer = answer.to_bytes()
