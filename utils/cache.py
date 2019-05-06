@@ -7,7 +7,23 @@ import sys
 from collections import defaultdict
 from collections import namedtuple
 
-from dns.dns_message import Answer
+from dns.dns_message import (
+    _Header,
+    Answer,
+    _Question,
+    _ResourceRecord,
+    _AResourceData,
+    _NSResourceData,
+    _AAAAResourceData,
+    _PTRResourceData)
+
+from dns.dns_enums import (
+    MessageType,
+    QueryType,
+    ResponseType,
+    RRType,
+    RRClass
+)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -31,11 +47,13 @@ def load_cache():
     global cache_store
     with open('cache.json') as cache_file:
         cache_store = json.load(cache_file, object_hook=lambda x: defaultdict(dict, x))
+    logger.debug('Cache loaded from long term storage')
 
 
 def dump_cache():
     with open('cache.json', 'w') as cache_file:
-        json.dump(cache_store, cache_file, default=str)
+        json.dump(cache_store, cache_file, default=repr, indent=4, sort_keys=True)
+    logger.debug('Data cached to long term storage')
 
 
 def cache(resolve):
@@ -46,8 +64,9 @@ def cache(resolve):
         rr_type = str(args[0].record_type.value)
         hostname = args[0].hostname
 
-        logger.debug(f'Key for query: {rr_type}, {hostname}')
+        logger.debug(f'Key for query: {args[0].record_type.name}, {hostname}')
 
+        # noinspection PyTypeChecker
         if (hostname not in cache_store[rr_type]
                 or ((datetime.datetime.now()
                     - datetime.datetime.strptime(
@@ -67,19 +86,19 @@ def cache(resolve):
 
                     ttl = min(record.ttl for record in domain_records)
 
-                    logger.debug(f'ttl: {ttl}')
-
+                    # noinspection PyTypeChecker
                     resources[domain] = (
                         ttl, str(datetime.datetime.now()),
-                        Answer(answer.header, answer.questions, domain_records, [], []))
+                        repr(Answer(answer.header, answer.questions, domain_records, [], [])))
 
             if not answer.answers:
+                # noinspection PyTypeChecker
                 cache_store[rr_type][hostname] = (
                     60 * 60 * 24, str(datetime.datetime.now()),
-                    Answer(answer.header, answer.questions, [], [], []))
+                    repr(Answer(answer.header, answer.questions, [], [], [])))
         else:
             logger.debug('Record from cache')
 
-        return cache_store[rr_type][hostname][2]
+        return eval(cache_store[rr_type][hostname][2])
 
     return wrapped

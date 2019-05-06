@@ -168,6 +168,14 @@ class Answer:
         self.authorities = authorities
         self.additions = additions
 
+    def __repr__(self):
+        return ('Answer('
+                f'{self.header!r}, '
+                f'{self.questions!r}, '
+                f'{self.answers!r}, '
+                f'{self.authorities!r}, '
+                f'{self.additions!r})')
+
     def __str__(self):  # pragma: no cover
         questions = '\n\t'.join(str(q) for q in self.questions)
         answers = '\n\t'.join(
@@ -266,6 +274,22 @@ class _Header:
         self.answer_count = answer_count
         self.authority_count = authority_count
         self.additional_count = additional_count
+
+    def __repr__(self):
+        return (
+            '_Header('
+            f'{self.identifier}, '
+            f'MessageType({self.message_type}), '
+            f'{self.question_count}, '
+            f'QueryType({self.query_type}), '
+            f'{self.is_authority_answer}, '
+            f'{self.is_truncated}, '
+            f'{self.is_recursion_desired}, '
+            f'{self.is_recursion_available}, '
+            f'ResponseType({self.response_type}), '
+            f'{self.answer_count}, '
+            f'{self.authority_count}, '
+            f'{self.additional_count})')
 
     def __str__(self):  # pragma: no cover
         message_type = (f'{MessageType(self.message_type).name} '
@@ -405,6 +429,11 @@ class _Question:
         self.type_ = type_
         self.class_ = RRClass.IN
 
+    def __repr__(self):
+        return ('_Question('
+                f'"{self.name}", '
+                f'RRType({self.type_}))')
+
     def __str__(self):  # pragma: no cover
         qtype = f'{RRType(self.type_).name} ({self.type_})'
         qclass = f'{RRClass(self.class_).name} ({self.class_})'
@@ -459,6 +488,10 @@ class _AResourceData:
         ip = struct.unpack('!BBBB', in_bytes)
         self.ip = '.'.join(map(str, ip))
 
+    def __repr__(self):
+        return ('_AResourceData('
+                f'{self.to_bytes()})')
+
     def __str__(self):  # pragma: no cover
         return f'IPv4 адрес (ADDRESS): {self.ip}\n'
 
@@ -475,10 +508,14 @@ class _AAAAResourceData:
         """
         Инициализирует AAAAResourceData
 
-        :param bytes in_bytes: 32 байта, содержащие ip address
+        :param bytes in_bytes: 16 байт, содержащие ip address
         """
         ip = [in_bytes[i:i + 2] for i in range(0, len(in_bytes), 2)]
         self.ip = ':'.join(map(bytes.hex, ip))
+
+    def __repr__(self):
+        return ('_AAAAResourceData('
+                f'{self.to_bytes()})')
 
     def __str__(self):  # pragma: no cover
         return f'IPv6 адрес (ADDRESS): {self.ip}\n\t'
@@ -500,6 +537,10 @@ class _PTRResourceData:
         """
         self.name = _decode_name(in_bytes, 0).decoded_
 
+    def __repr__(self):
+        return ('_PTRResourceData('
+                f'{self.to_bytes()})')
+
     def __str__(self):  # pragma: no cover
         return f'Доменное имя (PTRDNAME): {self.name}\n'
 
@@ -519,6 +560,11 @@ class _NSResourceData:
         :param bytes in_bytes:
         """
         self.name = _decode_name(in_bytes, offset).decoded_
+
+    def __repr__(self):
+        return ('_NSResourceData('
+                f'{self.to_bytes()}, '
+                f'0)')
 
     def __str__(self):  # pragma: no cover
         return f'Авторитетный сервер разрешения имен (NSDNAME): {self.name}\n'
@@ -649,6 +695,15 @@ class _ResourceRecord:
         self.ttl = ttl
         self.length = length
         self.data = data
+
+    def __repr__(self):
+        return ('_ResourceRecord('
+                f'"{self.name}", '
+                f'RRType({self.type_}), '
+                f'{self.length}, '
+                f'{self.data!r}, '
+                f'{self.ttl}, '
+                f'RRClass({self.class_}))')
 
     def __str__(self):  # pragma: no cover
         type_ = f'{RRType(self.type_).name} ({self.type_})'
