@@ -7,6 +7,7 @@ from dns.dns_message import Query, Answer
 from dns.dns_enums import RRType
 from utils import resolver
 from utils.cache import cache
+from utils.cache import load_cache, dump_cache
 from utils.zhuban_exceptions import ServerNotRespond
 
 HOST = '127.0.0.1'
@@ -59,6 +60,7 @@ def process_request(query: Query) -> Answer:
     if args.hostname.endswith('.beeline'):
         return Answer(query.header, [query.question], [], [], [])
 
+    # answer = Answer.from_bytes(cache_resolve(args))
     answer = cache_resolve(args)
     answer.header.identifier = query.header.identifier
 
@@ -82,6 +84,8 @@ def main():
             logger.info(f'Send answer to {address}')
             encoded_answer = answer.to_bytes()
             sock.sendto(encoded_answer, address)
+
+            dump_cache()
         except ServerNotRespond as e:
             logger.exception(e.msg)
         except ConnectionResetError:
@@ -89,4 +93,5 @@ def main():
 
 
 if __name__ == '__main__':
+    load_cache()
     main()
