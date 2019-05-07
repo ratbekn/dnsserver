@@ -15,7 +15,9 @@ from dns.dns_message import (
     _AResourceData,
     _NSResourceData,
     _AAAAResourceData,
-    _PTRResourceData)
+    _PTRResourceData,
+    _SOAResourceData,
+    _MXResourceData)
 
 from dns.dns_enums import (
     MessageType,

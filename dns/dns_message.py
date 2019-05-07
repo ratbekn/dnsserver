@@ -595,6 +595,11 @@ class _SOAResourceData:
         self.expiry = struct.unpack(fmt, expiry)[0]
         self.nxdomain_ttl = struct.unpack(fmt, nxdomain_ttl)[0]
 
+    def __repr__(self):
+        return ('_SOAResourceData('
+                f'{self.to_bytes()}, '
+                f'0)')
+
     def __str__(self):  # pragma: no cover
         return (f'Мастер сервер зоны (MNAME): {self.name_server}\n\t\t'
                 f'Почта ответсвенного за зону (RNAME): {self.email_addr}\n\t\t'
@@ -647,6 +652,11 @@ class _MXResourceData:
     def __init__(self, in_bytes, offset):
         self.preference = _decode_number(in_bytes[offset: offset + 2])
         self.name = _decode_name(in_bytes, offset + 2)[0]
+
+    def __repr__(self):
+        return ('_MXResourceData('
+                f'{self.to_bytes()}, '
+                f'0)')
 
     def __str__(self):  # pragma: no cover
         return (f'Приоритет записи (PREFERENCE): {self.preference}\n\t\t'

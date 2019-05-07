@@ -1,9 +1,19 @@
 {
     "1": {
+        "a.ns.facebook.com": [
+            172800,
+            "2019-05-07 02:29:36.427218",
+            "Answer(_Header(30043, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 0, 4), [_Question(\"facebook.com\", RRType(2))], [_ResourceRecord(\"a.ns.facebook.com\", RRType(1), 4, _AResourceData(b'E\\xab\\xef\\x0c'), 172800, RRClass(1))], [], [])"
+        ],
+        "b.ns.facebook.com": [
+            172800,
+            "2019-05-07 02:29:36.427218",
+            "Answer(_Header(30043, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 0, 4), [_Question(\"facebook.com\", RRType(2))], [_ResourceRecord(\"b.ns.facebook.com\", RRType(1), 4, _AResourceData(b'E\\xab\\xff\\x0c'), 172800, RRClass(1))], [], [])"
+        ],
         "e1.ru": [
             300,
-            "2019-05-07 02:26:40.371766",
-            "Answer(_Header(19499, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 4, 2), [_Question(\"e1.ru\", RRType(1))], [_ResourceRecord(\"e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x07'), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x06'), 300, RRClass(1))], [], [])"
+            "2019-05-07 13:11:32.478687",
+            "Answer(_Header(27162, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 4, 2), [_Question(\"e1.ru\", RRType(1))], [_ResourceRecord(\"e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x06'), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x07'), 300, RRClass(1))], [], [])"
         ],
         "google.com": [
             300,
@@ -27,33 +37,53 @@
         ],
         "ns1.e1.ru": [
             300,
-            "2019-05-07 02:26:40.371766",
-            "Answer(_Header(19499, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 4, 2), [_Question(\"e1.ru\", RRType(1))], [_ResourceRecord(\"ns1.e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x06'), 300, RRClass(1))], [], [])"
+            "2019-05-07 15:29:26.494182",
+            "Answer(_Header(19201, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 4, 2), [_Question(\"e1.ru\", RRType(15))], [_ResourceRecord(\"ns1.e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x06'), 300, RRClass(1))], [], [])"
         ],
         "ns1.e1.ru.beeline": [
             86400,
             "2019-05-07 02:27:38.132498",
             "Answer(_Header(23152, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"ns1.e1.ru.beeline\", RRType(2))], [], [], [])"
         ],
+        "ns1.google.com": [
+            345600,
+            "2019-05-07 02:29:23.917187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns1.google.com\", RRType(1), 4, _AResourceData(b'\\xd8\\xef \\n'), 345600, RRClass(1))], [], [])"
+        ],
         "ns1.yandex.ru": [
             345600,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns1.yandex.ru\", RRType(1), 4, _AResourceData(b'\\xd5\\xb4\\xc1\\x01'), 345600, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns1.yandex.ru\", RRType(1), 4, _AResourceData(b'\\xd5\\xb4\\xc1\\x01'), 345600, RRClass(1))], [], [])"
         ],
         "ns2.e1.ru": [
             300,
-            "2019-05-07 02:26:40.371766",
-            "Answer(_Header(19499, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 4, 2), [_Question(\"e1.ru\", RRType(1))], [_ResourceRecord(\"ns2.e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x07'), 300, RRClass(1))], [], [])"
+            "2019-05-07 15:29:26.494182",
+            "Answer(_Header(19201, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 4, 2), [_Question(\"e1.ru\", RRType(15))], [_ResourceRecord(\"ns2.e1.ru\", RRType(1), 4, _AResourceData(b'\\xd4\\xc1\\xa3\\x07'), 300, RRClass(1))], [], [])"
+        ],
+        "ns2.google.com": [
+            345600,
+            "2019-05-07 02:29:23.917187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns2.google.com\", RRType(1), 4, _AResourceData(b'\\xd8\\xef\"\\n'), 345600, RRClass(1))], [], [])"
         ],
         "ns2.yandex.ru": [
             345600,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns2.yandex.ru\", RRType(1), 4, _AResourceData(b']\\x9e\\x86\\x01'), 345600, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns2.yandex.ru\", RRType(1), 4, _AResourceData(b']\\x9e\\x86\\x01'), 345600, RRClass(1))], [], [])"
+        ],
+        "ns3.google.com": [
+            345600,
+            "2019-05-07 02:29:23.917187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns3.google.com\", RRType(1), 4, _AResourceData(b'\\xd8\\xef$\\n'), 345600, RRClass(1))], [], [])"
+        ],
+        "ns4.google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns4.google.com\", RRType(1), 4, _AResourceData(b'\\xd8\\xef&\\n'), 345600, RRClass(1))], [], [])"
         ],
         "ns9.z5h64q92x9.net": [
             300,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns9.z5h64q92x9.net\", RRType(1), 4, _AResourceData(b'P\\xef\\xc9\\t'), 300, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns9.z5h64q92x9.net\", RRType(1), 4, _AResourceData(b'P\\xef\\xc9\\t'), 300, RRClass(1))], [], [])"
         ],
         "pornhub.com": [
             3600,
@@ -64,6 +94,16 @@
             86400,
             "2019-05-07 02:27:56.264707",
             "Answer(_Header(64652, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"pornhub.com.beeline\", RRType(2))], [], [], [])"
+        ],
+        "super.kg": [
+            43200,
+            "2019-05-07 02:31:35.356308",
+            "Answer(_Header(52102, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 0, 0), [_Question(\"super.kg\", RRType(1))], [_ResourceRecord(\"super.kg\", RRType(1), 4, _AResourceData(b'\\x94\\xfb\\xb4]'), 43200, RRClass(1))], [], [])"
+        ],
+        "super.kg.beeline": [
+            86400,
+            "2019-05-07 02:31:34.506032",
+            "Answer(_Header(25682, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"super.kg.beeline\", RRType(2))], [], [], [])"
         ],
         "vk.com": [
             900,
@@ -86,16 +126,110 @@
             "Answer(_Header(2278, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"yandex.ru.beeline\", RRType(2))], [], [], [])"
         ]
     },
+    "12": {
+        "1.1.1.1.in-addr.arpa": [
+            1800,
+            "2019-05-07 02:31:55.987202",
+            "Answer(_Header(37651, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 0, 0), [_Question(\"1.1.1.1.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"1.1.1.1.in-addr.arpa\", RRType(12), 17, _PTRResourceData(b'\\x03one\\x03one\\x03one\\x03one\\x00'), 1800, RRClass(1))], [], [])"
+        ],
+        "41.114.254.66.in-addr.arpa": [
+            86400,
+            "2019-05-07 02:31:08.818931",
+            "Answer(_Header(975, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"41.114.254.66.in-addr.arpa\", RRType(12))], [], [], [])"
+        ],
+        "5.255.255.5.in-addr.arpa": [
+            300,
+            "2019-05-07 02:30:39.589486",
+            "Answer(_Header(26188, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 0), [_Question(\"5.255.255.5.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"5.255.255.5.in-addr.arpa\", RRType(12), 11, _PTRResourceData(b'\\x06yandex\\x02ru\\x00'), 300, RRClass(1))], [], [])"
+        ],
+        "6.163.193.212.in-addr.arpa": [
+            900,
+            "2019-05-07 02:30:19.751390",
+            "Answer(_Header(662, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 2), [_Question(\"6.163.193.212.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"6.163.193.212.in-addr.arpa\", RRType(12), 7, _PTRResourceData(b'\\x02e1\\x02ru\\x00'), 900, RRClass(1))], [], [])"
+        ],
+        "7.163.193.212.in-addr.arpa": [
+            900,
+            "2019-05-07 13:15:47.790181",
+            "Answer(_Header(52816, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 2), [_Question(\"7.163.193.212.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"7.163.193.212.in-addr.arpa\", RRType(12), 7, _PTRResourceData(b'\\x02e1\\x02ru\\x00'), 900, RRClass(1))], [], [])"
+        ],
+        "8.8.8.8.in-addr.arpa": [
+            86400,
+            "2019-05-07 02:31:52.698407",
+            "Answer(_Header(50941, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 0, 0), [_Question(\"8.8.8.8.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"8.8.8.8.in-addr.arpa\", RRType(12), 32, _PTRResourceData(b'\\x13google-public-dns-a\\x06google\\x03com\\x00'), 86400, RRClass(1))], [], [])"
+        ],
+        "80.55.88.77.in-addr.arpa": [
+            300,
+            "2019-05-07 02:30:34.856042",
+            "Answer(_Header(27432, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 0), [_Question(\"80.55.88.77.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"80.55.88.77.in-addr.arpa\", RRType(12), 11, _PTRResourceData(b'\\x06yandex\\x02ru\\x00'), 300, RRClass(1))], [], [])"
+        ],
+        "88.55.88.77.in-addr.arpa": [
+            300,
+            "2019-05-07 02:30:45.484545",
+            "Answer(_Header(7865, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 0), [_Question(\"88.55.88.77.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"88.55.88.77.in-addr.arpa\", RRType(12), 11, _PTRResourceData(b'\\x06yandex\\x02ru\\x00'), 300, RRClass(1))], [], [])"
+        ],
+        "93.180.251.148.in-addr.arpa": [
+            86400,
+            "2019-05-07 02:31:46.465119",
+            "Answer(_Header(6326, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 0), [_Question(\"93.180.251.148.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"93.180.251.148.in-addr.arpa\", RRType(12), 46, _PTRResourceData(b'\\x06static\\x0293\\x03180\\x03251\\x03148\\x07clients\\x0byour-server\\x02de\\x00'), 86400, RRClass(1))], [], [])"
+        ]
+    },
+    "15": {
+        "e1.ru": [
+            60,
+            "2019-05-07 15:29:26.495184",
+            "Answer(_Header(19201, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 4, 2), [_Question(\"e1.ru\", RRType(15))], [_ResourceRecord(\"e1.ru\", RRType(15), 17, _MXResourceData(b'\\x00\\n\\x02mx\\x06yandex\\x03net\\x00', 0), 60, RRClass(1))], [], [])"
+        ]
+    },
     "2": {
+        "163.193.212.in-addr.arpa": [
+            900,
+            "2019-05-07 13:15:47.790181",
+            "Answer(_Header(52816, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 2), [_Question(\"7.163.193.212.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"163.193.212.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x02e1\\x02ru\\x00', 0), 900, RRClass(1)), _ResourceRecord(\"163.193.212.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x02e1\\x02ru\\x00', 0), 900, RRClass(1))], [], [])"
+        ],
+        "180.251.148.in-addr.arpa": [
+            86400,
+            "2019-05-07 02:31:46.465119",
+            "Answer(_Header(6326, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 0), [_Question(\"93.180.251.148.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"180.251.148.in-addr.arpa\", RRType(2), 16, _NSResourceData(b'\\x03ns3\\tsecond-ns\\x02de\\x00', 0), 86400, RRClass(1)), _ResourceRecord(\"180.251.148.in-addr.arpa\", RRType(2), 18, _NSResourceData(b'\\x02ns\\tsecond-ns\\x03com\\x00', 0), 86400, RRClass(1)), _ResourceRecord(\"180.251.148.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x0byour-server\\x02de\\x00', 0), 86400, RRClass(1))], [], [])"
+        ],
+        "255.255.5.in-addr.arpa": [
+            172800,
+            "2019-05-07 02:30:39.589486",
+            "Answer(_Header(26188, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 0), [_Question(\"5.255.255.5.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"255.255.5.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns4\\x06yandex\\x02ru\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"255.255.5.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns3\\x06yandex\\x02ru\\x00', 0), 172800, RRClass(1))], [], [])"
+        ],
+        "55.88.77.in-addr.arpa": [
+            172800,
+            "2019-05-07 02:30:45.484545",
+            "Answer(_Header(7865, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 2, 0), [_Question(\"88.55.88.77.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"55.88.77.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns3\\x06yandex\\x02ru\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"55.88.77.in-addr.arpa\", RRType(2), 6, _NSResourceData(b'\\x03ns4\\x06yandex\\x02ru\\x00', 0), 172800, RRClass(1))], [], [])"
+        ],
         "e1.ru": [
             300,
-            "2019-05-07 02:26:40.371766",
-            "Answer(_Header(19499, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 4, 2), [_Question(\"e1.ru\", RRType(1))], [_ResourceRecord(\"e1.ru\", RRType(2), 9, _NSResourceData(b'\\x02ns\\x03ngs\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x02e1\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x02e1\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x03ngs\\x02ru\\x00', 0), 300, RRClass(1))], [], [])"
+            "2019-05-07 15:29:26.495184",
+            "Answer(_Header(19201, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 4, 2), [_Question(\"e1.ru\", RRType(15))], [_ResourceRecord(\"e1.ru\", RRType(2), 10, _NSResourceData(b'\\x03ns2\\x03ngs\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x02e1\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 5, _NSResourceData(b'\\x02ns\\x03ngs\\x02ru\\x00', 0), 300, RRClass(1)), _ResourceRecord(\"e1.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x02e1\\x02ru\\x00', 0), 300, RRClass(1))], [], [])"
+        ],
+        "facebook.com": [
+            172800,
+            "2019-05-07 02:29:36.427218",
+            "Answer(_Header(30043, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 0, 4), [_Question(\"facebook.com\", RRType(2))], [_ResourceRecord(\"facebook.com\", RRType(2), 19, _NSResourceData(b'\\x01a\\x02ns\\x08facebook\\x03com\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"facebook.com\", RRType(2), 19, _NSResourceData(b'\\x01b\\x02ns\\x08facebook\\x03com\\x00', 0), 172800, RRClass(1))], [], [])"
+        ],
+        "facebook.com.beeline": [
+            86400,
+            "2019-05-07 02:29:35.880216",
+            "Answer(_Header(14516, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"facebook.com.beeline\", RRType(2))], [], [], [])"
+        ],
+        "google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"google.com\", RRType(2), 6, _NSResourceData(b'\\x03ns4\\x06google\\x03com\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"google.com\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x06google\\x03com\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"google.com\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x06google\\x03com\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"google.com\", RRType(2), 6, _NSResourceData(b'\\x03ns3\\x06google\\x03com\\x00', 0), 345600, RRClass(1))], [], [])"
+        ],
+        "google.com.beeline": [
+            86400,
+            "2019-05-07 02:29:23.328466",
+            "Answer(_Header(26652, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"google.com.beeline\", RRType(2))], [], [], [])"
         ],
         "instagram.com": [
             172800,
-            "2019-05-07 02:28:02.909783",
-            "Answer(_Header(4408, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 8, 4, 0), [_Question(\"instagram.com\", RRType(1))], [_ResourceRecord(\"instagram.com\", RRType(2), 23, _NSResourceData(b'\\x07ns-1349\\tawsdns-40\\x03org\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 25, _NSResourceData(b'\\x07ns-2016\\tawsdns-60\\x02co\\x02uk\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 19, _NSResourceData(b'\\x06ns-384\\tawsdns-48\\x03com\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 22, _NSResourceData(b'\\x06ns-868\\tawsdns-44\\x03net\\x00', 0), 172800, RRClass(1))], [], [])"
+            "2019-05-07 02:29:58.105762",
+            "Answer(_Header(59197, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 8, 4, 0), [_Question(\"instagram.com\", RRType(28))], [_ResourceRecord(\"instagram.com\", RRType(2), 23, _NSResourceData(b'\\x07ns-1349\\tawsdns-40\\x03org\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 25, _NSResourceData(b'\\x07ns-2016\\tawsdns-60\\x02co\\x02uk\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 19, _NSResourceData(b'\\x06ns-384\\tawsdns-48\\x03com\\x00', 0), 172800, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(2), 22, _NSResourceData(b'\\x06ns-868\\tawsdns-44\\x03net\\x00', 0), 172800, RRClass(1))], [], [])"
         ],
         "pornhub.com": [
             86400,
@@ -109,32 +243,112 @@
         ],
         "yandex.ru": [
             345600,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"yandex.ru\", RRType(2), 20, _NSResourceData(b'\\x03ns9\\nz5h64q92x9\\x03net\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"yandex.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x06yandex\\x02ru\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"yandex.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x06yandex\\x02ru\\x00', 0), 345600, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"yandex.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns2\\x06yandex\\x02ru\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"yandex.ru\", RRType(2), 6, _NSResourceData(b'\\x03ns1\\x06yandex\\x02ru\\x00', 0), 345600, RRClass(1)), _ResourceRecord(\"yandex.ru\", RRType(2), 20, _NSResourceData(b'\\x03ns9\\nz5h64q92x9\\x03net\\x00', 0), 345600, RRClass(1))], [], [])"
         ]
     },
     "28": {
+        "66.ru": [
+            86400,
+            "2019-05-07 02:30:05.504295",
+            "Answer(_Header(54594, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 0, 1, 0), [_Question(\"66.ru\", RRType(28))], [], [], [])"
+        ],
+        "a.ns.facebook.com": [
+            172800,
+            "2019-05-07 02:29:36.427218",
+            "Answer(_Header(30043, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 0, 4), [_Question(\"facebook.com\", RRType(2))], [_ResourceRecord(\"a.ns.facebook.com\", RRType(28), 16, _AAAAResourceData(b'*\\x03(\\x80\\xff\\xfe\\x00\\x0c\\xfa\\xce\\xb0\\x0c\\x00\\x00\\x005'), 172800, RRClass(1))], [], [])"
+        ],
+        "b.ns.facebook.com": [
+            172800,
+            "2019-05-07 02:29:36.427218",
+            "Answer(_Header(30043, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 2, 0, 4), [_Question(\"facebook.com\", RRType(2))], [_ResourceRecord(\"b.ns.facebook.com\", RRType(28), 16, _AAAAResourceData(b'*\\x03(\\x80\\xff\\xff\\x00\\x0c\\xfa\\xce\\xb0\\x0c\\x00\\x00\\x005'), 172800, RRClass(1))], [], [])"
+        ],
+        "e1.ru": [
+            86400,
+            "2019-05-07 13:11:33.352843",
+            "Answer(_Header(4297, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 0, 1, 0), [_Question(\"e1.ru\", RRType(28))], [], [], [])"
+        ],
+        "instagram.com": [
+            60,
+            "2019-05-07 02:29:58.105762",
+            "Answer(_Header(59197, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 8, 4, 0), [_Question(\"instagram.com\", RRType(28))], [_ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\\\k\\x89'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03[\\x87\\xd7'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\xd2\\x1eU'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\xd1\\xa1\\xb0'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\xd2tY'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\\\w\\x80'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\xd2L\\xb8'), 60, RRClass(1)), _ResourceRecord(\"instagram.com\", RRType(28), 16, _AAAAResourceData(b'$\\x06\\xda\\x00\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x03\\xd1\\x12\\xd0'), 60, RRClass(1))], [], [])"
+        ],
+        "ns1.google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns1.google.com\", RRType(28), 16, _AAAAResourceData(b' \\x01H`H\\x02\\x002\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\n'), 345600, RRClass(1))], [], [])"
+        ],
         "ns1.yandex.ru": [
             3600,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns1.yandex.ru\", RRType(28), 16, _AAAAResourceData(b'*\\x02\\x06\\xb8\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x01'), 3600, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns1.yandex.ru\", RRType(28), 16, _AAAAResourceData(b'*\\x02\\x06\\xb8\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x01'), 3600, RRClass(1))], [], [])"
+        ],
+        "ns2.google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns2.google.com\", RRType(28), 16, _AAAAResourceData(b' \\x01H`H\\x02\\x004\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\n'), 345600, RRClass(1))], [], [])"
         ],
         "ns2.yandex.ru": [
             3600,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns2.yandex.ru\", RRType(28), 16, _AAAAResourceData(b'*\\x02\\x06\\xb8\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x01'), 3600, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns2.yandex.ru\", RRType(28), 16, _AAAAResourceData(b'*\\x02\\x06\\xb8\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x01'), 3600, RRClass(1))], [], [])"
+        ],
+        "ns3.google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns3.google.com\", RRType(28), 16, _AAAAResourceData(b' \\x01H`H\\x02\\x006\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\n'), 345600, RRClass(1))], [], [])"
+        ],
+        "ns4.google.com": [
+            345600,
+            "2019-05-07 02:29:23.918187",
+            "Answer(_Header(55376, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 0, 8), [_Question(\"google.com\", RRType(2))], [_ResourceRecord(\"ns4.google.com\", RRType(28), 16, _AAAAResourceData(b' \\x01H`H\\x02\\x008\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\n'), 345600, RRClass(1))], [], [])"
         ],
         "ns9.z5h64q92x9.net": [
             300,
-            "2019-05-07 02:28:04.754977",
-            "Answer(_Header(40987, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 4, 3, 6), [_Question(\"yandex.ru\", RRType(1))], [_ResourceRecord(\"ns9.z5h64q92x9.net\", RRType(28), 16, _AAAAResourceData(b' \\x01 0\\x00\\x00\\x00@\\x80\\x00\\x00\\x00\\x00\\x00\\x00x'), 300, RRClass(1))], [], [])"
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"ns9.z5h64q92x9.net\", RRType(28), 16, _AAAAResourceData(b' \\x01 0\\x00\\x00\\x00@\\x80\\x00\\x00\\x00\\x00\\x00\\x00x'), 300, RRClass(1))], [], [])"
+        ],
+        "vk.com": [
+            86400,
+            "2019-05-07 02:30:00.877510",
+            "Answer(_Header(5924, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 0, 1, 0), [_Question(\"vk.com\", RRType(28))], [], [], [])"
+        ],
+        "yandex.ru": [
+            300,
+            "2019-05-07 02:29:43.740742",
+            "Answer(_Header(18164, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 3, 6), [_Question(\"yandex.ru\", RRType(28))], [_ResourceRecord(\"yandex.ru\", RRType(28), 16, _AAAAResourceData(b'*\\x02\\x06\\xb8\\x00\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\n'), 300, RRClass(1))], [], [])"
+        ],
+        "yandex.ru.beeline": [
+            86400,
+            "2019-05-07 02:29:43.357714",
+            "Answer(_Header(36181, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"yandex.ru.beeline\", RRType(2))], [], [], [])"
         ]
     },
     "6": {
         "": [
             86400,
-            "2019-05-07 02:28:04.272088",
-            "Answer(_Header(2278, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"yandex.ru.beeline\", RRType(2))], [_ResourceRecord(\"\", RRType(6), 64, <dns.dns_message._SOAResourceData object at 0x000001F5250EB898>, 86400, RRClass(1))], [], [])"
+            "2019-05-07 02:31:34.506032",
+            "Answer(_Header(25682, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"super.kg.beeline\", RRType(2))], [_ResourceRecord(\"\", RRType(6), 64, <dns.dns_message._SOAResourceData object at 0x000001F9475316A0>, 86400, RRClass(1))], [], [])"
+        ],
+        "114.254.66.in-addr.arpa": [
+            3600,
+            "2019-05-07 02:31:08.818931",
+            "Answer(_Header(975, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(3), 0, 1, 0), [_Question(\"41.114.254.66.in-addr.arpa\", RRType(12))], [_ResourceRecord(\"114.254.66.in-addr.arpa\", RRType(6), 57, <dns.dns_message._SOAResourceData object at 0x000001F9472AAE80>, 3600, RRClass(1))], [], [])"
+        ],
+        "66.ru": [
+            3600,
+            "2019-05-07 02:30:05.504295",
+            "Answer(_Header(54594, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 0, 1, 0), [_Question(\"66.ru\", RRType(28))], [_ResourceRecord(\"66.ru\", RRType(6), 63, <dns.dns_message._SOAResourceData object at 0x000001F9474FA0F0>, 3600, RRClass(1))], [], [])"
+        ],
+        "e1.ru": [
+            300,
+            "2019-05-07 15:20:52.265940",
+            "Answer(_Header(12127, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 1, 4, 2), [_Question(\"e1.ru\", RRType(6))], [_ResourceRecord(\"e1.ru\", RRType(6), 35, _SOAResourceData(b\"\\x03ns1\\x02e1\\x02ru\\x00\\x06admins\\x02e1\\x02ru\\x00xX\\x1f\\xb2\\x00\\x00\\x03\\x84\\x00\\x00\\x01,\\x00'\\x8d\\x00\\x00\\x00\\x01,\", 0), 300, RRClass(1))], [], [])"
+        ],
+        "vk.com": [
+            900,
+            "2019-05-07 02:30:00.876510",
+            "Answer(_Header(5924, MessageType(1), 1, QueryType(0), True, False, True, False, ResponseType(0), 0, 1, 0), [_Question(\"vk.com\", RRType(28))], [_ResourceRecord(\"vk.com\", RRType(6), 44, <dns.dns_message._SOAResourceData object at 0x000001F94752B390>, 900, RRClass(1))], [], [])"
         ]
     }
 }
